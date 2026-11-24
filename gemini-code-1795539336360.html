@@ -1,0 +1,1398 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Dreams Spa | Hammam Sousse - تونس</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Cairo for Arabic Dialects, Playfair Display & Plus Jakarta Sans for English -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        espresso: '#141B18',
+                        charcoal: '#1D2622',
+                        emeraldSpa: '#16382E',
+                        gold: {
+                            DEFAULT: '#C8A96E',
+                            light: '#E0C794',
+                            dark: '#A48449'
+                        },
+                        sand: '#FAF8F4',
+                        cream: '#F1ECE1'
+                    },
+                    fontFamily: {
+                        arabic: ['Cairo', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #FAF8F4;
+            color: #141B18;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        [dir="rtl"] body {
+            font-family: 'Cairo', sans-serif;
+        }
+        [dir="ltr"] body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        [dir="ltr"] .luxury-title {
+            font-family: 'Playfair Display', serif;
+        }
+        .glass-nav {
+            background: rgba(20, 27, 24, 0.92);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+        }
+        .hero-overlay {
+            background: linear-gradient(135deg, rgba(20, 27, 24, 0.93) 0%, rgba(22, 56, 46, 0.78) 55%, rgba(200, 169, 110, 0.25) 100%);
+        }
+        .gold-glow:hover {
+            box-shadow: 0 12px 32px -6px rgba(200, 169, 110, 0.45);
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #141B18;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #C8A96E;
+            border-radius: 9999px;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-gold selection:text-espresso overflow-x-hidden">
+
+    <!-- Toast Notification (No alert()) -->
+    <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 hidden items-center gap-3 bg-espresso text-sand border border-gold/50 px-5 py-3.5 rounded-2xl shadow-2xl transition-all duration-300">
+        <i data-lucide="check-circle-2" class="w-5 h-5 text-gold shrink-0"></i>
+        <span id="toast-msg" class="text-sm font-semibold"></span>
+    </div>
+
+    <!-- Sticky Glass Header -->
+    <header class="fixed top-0 inset-x-0 z-40 glass-nav border-b border-gold/20 text-sand">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20 gap-2">
+                <!-- Brand Logo -->
+                <a href="#home" class="flex items-center gap-3 group shrink-0">
+                    <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-gold to-gold-dark flex items-center justify-center text-espresso shadow-lg group-hover:scale-105 transition-transform">
+                        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 3C9.5 7 9.5 13 12 17C14.5 13 14.5 7 12 3Z"/>
+                            <path d="M12 17C8 15 4 12 3 8C7 8 10 11 12 17Z"/>
+                            <path d="M12 17C16 15 20 12 21 8C17 8 14 11 12 17Z"/>
+                            <path d="M5 20H19" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <span class="block text-lg sm:text-xl font-bold tracking-wide text-gold luxury-title">The Dreams Spa</span>
+                        <span class="block text-[11px] text-sand/75 tracking-wider uppercase">Hammam Sousse • Tunisia</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden lg:flex items-center gap-7 text-sm font-medium">
+                    <a href="#home" data-i18n="nav_home" class="hover:text-gold transition-colors">الرئيسية</a>
+                    <a href="#services" data-i18n="nav_services" class="hover:text-gold transition-colors">الخدمات والأسعار</a>
+                    <a href="#offers" data-i18n="nav_offers" class="hover:text-gold transition-colors">عروض الدلال</a>
+                    <a href="#gallery" data-i18n="nav_gallery" class="hover:text-gold transition-colors">المعرض والصور</a>
+                    <a href="#booking" data-i18n="nav_booking" class="hover:text-gold transition-colors">احجز موعدك</a>
+                    <a href="#contact" data-i18n="nav_contact" class="hover:text-gold transition-colors">الموقع والاتصال</a>
+                </nav>
+
+                <!-- Dialect Switcher & Quick Call -->
+                <div class="flex items-center gap-2 sm:gap-3">
+                    <div class="relative">
+                        <label for="lang-select" class="sr-only">Language / Dialect</label>
+                        <div class="flex items-center bg-charcoal border border-gold/40 rounded-xl px-2.5 py-2 hover:border-gold transition-colors">
+                            <i data-lucide="globe" class="w-4 h-4 text-gold shrink-0 me-1.5"></i>
+                            <select id="lang-select" onchange="changeLanguage(this.value)" class="bg-transparent text-sand text-xs sm:text-sm font-bold focus:outline-none cursor-pointer pr-1">
+                                <option value="tn" class="bg-espresso text-sand">🇹🇳 التونسية</option>
+                                <option value="ly" class="bg-espresso text-sand">🇱🇾 الليبية</option>
+                                <option value="dz" class="bg-espresso text-sand">🇩🇿 الجزائرية</option>
+                                <option value="ma" class="bg-espresso text-sand">🇲🇦 المغربية</option>
+                                <option value="en" class="bg-espresso text-sand">🇬🇧 English</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <a href="tel:+21620173589" class="hidden sm:inline-flex items-center gap-2 bg-gold hover:bg-gold-light text-espresso font-bold text-xs sm:text-sm px-4 py-2.5 rounded-xl transition-all gold-glow">
+                        <i data-lucide="phone-call" class="w-4 h-4"></i>
+                        <span dir="ltr">20 173 589</span>
+                    </a>
+
+                    <button id="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Menu" class="lg:hidden p-2.5 rounded-xl bg-charcoal border border-gold/30 text-gold hover:bg-gold hover:text-espresso transition-colors">
+                        <i data-lucide="menu" class="w-5 h-5"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Drawer -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-espresso border-t border-gold/20 px-4 pt-3 pb-5 space-y-2">
+            <a href="#home" onclick="toggleMobileMenu()" data-i18n="nav_home" class="block py-2.5 px-3 rounded-xl hover:bg-charcoal text-sand font-medium">الرئيسية</a>
+            <a href="#services" onclick="toggleMobileMenu()" data-i18n="nav_services" class="block py-2.5 px-3 rounded-xl hover:bg-charcoal text-sand font-medium">الخدمات والأسعار</a>
+            <a href="#offers" onclick="toggleMobileMenu()" data-i18n="nav_offers" class="block py-2.5 px-3 rounded-xl hover:bg-charcoal text-sand font-medium">عروض الدلال</a>
+            <a href="#gallery" onclick="toggleMobileMenu()" data-i18n="nav_gallery" class="block py-2.5 px-3 rounded-xl hover:bg-charcoal text-sand font-medium">المعرض والصور</a>
+            <a href="#booking" onclick="toggleMobileMenu()" data-i18n="nav_booking" class="block py-2.5 px-3 rounded-xl hover:bg-charcoal text-sand font-medium">احجز موعدك</a>
+            <a href="#contact" onclick="toggleMobileMenu()" data-i18n="nav_contact" class="block py-2.5 px-3 rounded-xl hover:bg-charcoal text-sand font-medium">الموقع والاتصال</a>
+            <div class="pt-2 border-t border-gold/10 flex gap-2">
+                <a href="tel:+21620173589" class="flex-1 flex items-center justify-center gap-2 bg-gold text-espresso font-bold py-3 rounded-xl text-sm">
+                    <i data-lucide="phone" class="w-4 h-4"></i>
+                    <span dir="ltr">+216 20 173 589</span>
+                </a>
+                <a href="https://www.facebook.com/profile.php?id=100091894653210" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center px-4 bg-charcoal border border-gold/30 text-gold rounded-xl">
+                    <i data-lucide="facebook" class="w-5 h-5"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-[92vh] flex items-center pt-20 overflow-hidden bg-espresso">
+        <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=1920&q=85"
+             onerror="this.src='https://placehold.co/1920x1080/141B18/C8A96E?text=The+Dreams+Spa'"
+             alt="The Dreams Spa Hammam Sousse"
+             class="absolute inset-0 w-full h-full object-cover object-center opacity-50 scale-105">
+        <div class="absolute inset-0 hero-overlay"></div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 w-full">
+            <div class="max-w-3xl">
+                <div class="inline-flex items-center gap-2 bg-charcoal/90 border border-gold/40 rounded-full px-4 py-1.5 mb-6">
+                    <span class="w-2 h-2 rounded-full bg-gold animate-pulse"></span>
+                    <span data-i18n="hero_badge" class="text-xs sm:text-sm font-semibold text-gold tracking-wide">حمام سوسة • القنطاوي — مرحبا بالناس الكل نساء ورجال</span>
+                </div>
+
+                <h1 data-i18n="hero_title" class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-sand leading-tight mb-6 luxury-title">
+                    تحب ترتاح وتنحّي السترس؟ <span class="text-gold">The Dreams Spa</span> ينسّيك في التعب الكل
+                </h1>
+
+                <p data-i18n="hero_subtitle" class="text-base sm:text-xl text-sand/85 leading-relaxed mb-8 max-w-2xl">
+                    صباح الراحة النفسية والدّلال في حمام سوسة! مساج احترافي بأنواعه، حمام دافئ، وتنظيف عميق للبشرة في أجواء هادئة ومريحة.
+                </p>
+
+                <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mb-10">
+                    <a href="#booking" class="inline-flex items-center justify-center gap-3 bg-gold hover:bg-gold-light text-espresso font-bold text-base px-7 py-4 rounded-2xl transition-all gold-glow">
+                        <i data-lucide="calendar-check" class="w-5 h-5"></i>
+                        <span data-i18n="cta_book_now">احجز موعدك توّا</span>
+                    </a>
+                    <button onclick="openWhatsAppGeneral()" class="inline-flex items-center justify-center gap-3 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-base px-7 py-4 rounded-2xl transition-all shadow-lg cursor-pointer">
+                        <i data-lucide="message-circle" class="w-5 h-5"></i>
+                        <span data-i18n="cta_whatsapp">تواصل مباشرة على الواتساب</span>
+                    </button>
+                </div>
+
+                <!-- Key Highlights -->
+                <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-6 border-t border-gold/20 text-sand/90">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-gold/15 flex items-center justify-center text-gold shrink-0">
+                            <i data-lucide="clock" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <p class="font-bold text-sm sm:text-base text-gold" dir="ltr">09:00 - 21:00</p>
+                            <p data-i18n="stat_hours" class="text-xs text-sand/75">مفتوح يومياً</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-gold/15 flex items-center justify-center text-gold shrink-0">
+                            <i data-lucide="users" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <p data-i18n="stat_welcome_title" class="font-bold text-sm sm:text-base text-gold">نساء ورجال</p>
+                            <p data-i18n="stat_welcome_sub" class="text-xs text-sand/75">مرحبا بيكم الناس الكل</p>
+                        </div>
+                    </div>
+                    <div class="col-span-2 sm:col-span-1 flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-gold/15 flex items-center justify-center text-gold shrink-0">
+                            <i data-lucide="map-pin" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <p data-i18n="stat_loc_title" class="font-bold text-sm sm:text-base text-gold">حمام سوسة</p>
+                            <p data-i18n="stat_loc_sub" class="text-xs text-sand/75">طريق القنطاوي / شارع الإسكندرية</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Official Services & Pricing Menu (All 9 Official Items) -->
+    <section id="services" class="py-20 bg-sand">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-14">
+                <span data-i18n="services_tag" class="inline-block text-xs font-bold uppercase tracking-widest text-gold-dark bg-gold/15 px-4 py-1.5 rounded-full mb-3">قائمة الخدمات والأسعار الرسمية</span>
+                <h2 data-i18n="services_title" class="text-3xl sm:text-4xl font-extrabold text-espresso mb-4 luxury-title">خدمات المساج والحمام في The Dreams Spa</h2>
+                <p data-i18n="services_desc" class="text-espresso/75 text-base sm:text-lg">اختار نوع المساج أو الحمام اللي يناسبك بأفضل الأسعار في حمام سوسة.</p>
+            </div>
+
+            <div id="services-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+        </div>
+    </section>
+
+    <!-- Special Offers & Combos Section (عروض وباقات الدلال) -->
+    <section id="offers" class="py-20 bg-emeraldSpa text-sand relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-2xl mx-auto mb-14">
+                <span data-i18n="offers_tag" class="inline-block text-xs font-bold uppercase tracking-widest text-gold bg-gold/15 border border-gold/30 px-4 py-1.5 rounded-full mb-3">عروض خاصة ومميزة</span>
+                <h2 data-i18n="offers_title" class="text-3xl sm:text-4xl font-extrabold text-sand mb-4 luxury-title">عروض وباقات الدلال في The Dreams Spa</h2>
+                <p data-i18n="offers_desc" class="text-sand/80 text-base sm:text-lg">استفد من باقاتنا المتكاملة لتجربة استرخاء كاملة بأفضل سعر.</p>
+            </div>
+
+            <div id="offers-grid" class="grid grid-cols-1 md:grid-cols-3 gap-7"></div>
+        </div>
+    </section>
+
+    <!-- Photo Gallery Section -->
+    <section id="gallery" class="py-20 bg-espresso text-sand">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+                <div>
+                    <span data-i18n="gal_tag" class="inline-block text-xs font-bold uppercase tracking-widest text-gold bg-gold/15 px-4 py-1.5 rounded-full mb-3">أجواء المركز</span>
+                    <h2 data-i18n="gal_title" class="text-3xl sm:text-4xl font-extrabold text-sand luxury-title">معرض صور The Dreams Spa</h2>
+                    <p data-i18n="gal_desc" class="text-sand/75 text-sm sm:text-base mt-2 max-w-2xl">
+                        لقطات من غرف المساج، الشموع، وأجواء الراحة. الصور اللي تزيدها من جهازك تبقى محفوظة في متصفحك وما تختفيش عند إعادة التحميل.
+                    </p>
+                </div>
+
+                <div class="flex flex-wrap items-center gap-3">
+                    <label for="photo-upload" class="inline-flex items-center gap-2 bg-gold hover:bg-gold-light text-espresso font-bold text-xs sm:text-sm px-4 py-3 rounded-xl cursor-pointer transition-all shadow-md">
+                        <i data-lucide="image-plus" class="w-4 h-4"></i>
+                        <span data-i18n="gal_upload_btn">+ أضف صور من هاتفك</span>
+                    </label>
+                    <input type="file" id="photo-upload" accept="image/*" multiple class="hidden" onchange="handlePhotoUpload(event)">
+
+                    <a href="https://www.facebook.com/profile.php?id=100091894653210&sk=photos" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-charcoal hover:bg-charcoal/80 border border-gold/40 text-gold font-semibold text-xs sm:text-sm px-4 py-3 rounded-xl transition-all">
+                        <i data-lucide="facebook" class="w-4 h-4"></i>
+                        <span data-i18n="gal_fb_btn">صور صفحة فيسبوك</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                <!-- Photo 1: Candlelit Relax Ambiance -->
+                <div onclick="openLightbox(this)" class="group relative h-72 rounded-3xl overflow-hidden border border-gold/20 cursor-pointer bg-charcoal">
+                    <img src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=900&q=80"
+                         onerror="this.src='https://placehold.co/900x700/1D2622/C8A96E?text=RELAX+SPA'"
+                         alt="Relaxation & Candles" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-espresso/90 via-transparent to-transparent opacity-80 group-hover:opacity-95 transition-opacity"></div>
+                    <div class="absolute bottom-4 inset-x-4 flex items-center justify-between">
+                        <span data-i18n="gal_cap1" class="text-sm font-bold text-gold">أجواء الشموع والاسترخاء (RELAX)</span>
+                        <span class="w-8 h-8 rounded-full bg-gold/20 text-gold flex items-center justify-center"><i data-lucide="maximize-2" class="w-4 h-4"></i></span>
+                    </div>
+                </div>
+
+                <!-- Photo 2: Back & Shoulder Massage -->
+                <div onclick="openLightbox(this)" class="group relative h-72 rounded-3xl overflow-hidden border border-gold/20 cursor-pointer bg-charcoal">
+                    <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=900&q=80"
+                         onerror="this.src='https://placehold.co/900x700/1D2622/C8A96E?text=Massage+Session'"
+                         alt="Back Massage Session" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-espresso/90 via-transparent to-transparent opacity-80 group-hover:opacity-95 transition-opacity"></div>
+                    <div class="absolute bottom-4 inset-x-4 flex items-center justify-between">
+                        <span data-i18n="gal_cap2" class="text-sm font-bold text-gold">جلسات مساج الظهر والكتفين</span>
+                        <span class="w-8 h-8 rounded-full bg-gold/20 text-gold flex items-center justify-center"><i data-lucide="maximize-2" class="w-4 h-4"></i></span>
+                    </div>
+                </div>
+
+                <!-- Photo 3: Modern Ambient Treatment Room -->
+                <div onclick="openLightbox(this)" class="group relative h-72 rounded-3xl overflow-hidden border border-gold/20 cursor-pointer bg-charcoal">
+                    <img src="https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?auto=format&fit=crop&w=900&q=80"
+                         onerror="this.src='https://placehold.co/900x700/1D2622/C8A96E?text=Treatment+Room'"
+                         alt="Treatment Room" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-espresso/90 via-transparent to-transparent opacity-80 group-hover:opacity-95 transition-opacity"></div>
+                    <div class="absolute bottom-4 inset-x-4 flex items-center justify-between">
+                        <span data-i18n="gal_cap3" class="text-sm font-bold text-gold">غرف المساج المجهزة بإضاءة مريحة</span>
+                        <span class="w-8 h-8 rounded-full bg-gold/20 text-gold flex items-center justify-center"><i data-lucide="maximize-2" class="w-4 h-4"></i></span>
+                    </div>
+                </div>
+
+                <!-- Photo 4: Aromatherapy Oils -->
+                <div onclick="openLightbox(this)" class="group relative h-72 rounded-3xl overflow-hidden border border-gold/20 cursor-pointer bg-charcoal">
+                    <img src="https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=900&q=80"
+                         onerror="this.src='https://placehold.co/900x700/1D2622/C8A96E?text=Essential+Oils'"
+                         alt="Essential Oils" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-espresso/90 via-transparent to-transparent opacity-80 group-hover:opacity-95 transition-opacity"></div>
+                    <div class="absolute bottom-4 inset-x-4 flex items-center justify-between">
+                        <span data-i18n="gal_cap4" class="text-sm font-bold text-gold">زيوت عطرية طبيعية دافئة</span>
+                        <span class="w-8 h-8 rounded-full bg-gold/20 text-gold flex items-center justify-center"><i data-lucide="maximize-2" class="w-4 h-4"></i></span>
+                    </div>
+                </div>
+
+                <!-- Photo 5: Facial & Skin Care -->
+                <div onclick="openLightbox(this)" class="group relative h-72 rounded-3xl overflow-hidden border border-gold/20 cursor-pointer bg-charcoal">
+                    <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=900&q=80"
+                         onerror="this.src='https://placehold.co/900x700/1D2622/C8A96E?text=Skin+Care'"
+                         alt="Facial Skin Care" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-espresso/90 via-transparent to-transparent opacity-80 group-hover:opacity-95 transition-opacity"></div>
+                    <div class="absolute bottom-4 inset-x-4 flex items-center justify-between">
+                        <span data-i18n="gal_cap5" class="text-sm font-bold text-gold">تنظيف وعناية عميقة بالبشرة</span>
+                        <span class="w-8 h-8 rounded-full bg-gold/20 text-gold flex items-center justify-center"><i data-lucide="maximize-2" class="w-4 h-4"></i></span>
+                    </div>
+                </div>
+
+                <!-- Photo 6: Hammam & Spa Rituals -->
+                <div onclick="openLightbox(this)" class="group relative h-72 rounded-3xl overflow-hidden border border-gold/20 cursor-pointer bg-charcoal">
+                    <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=900&q=80"
+                         onerror="this.src='https://placehold.co/900x700/1D2622/C8A96E?text=Hammam+Spa'"
+                         alt="Hammam Spa" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-espresso/90 via-transparent to-transparent opacity-80 group-hover:opacity-95 transition-opacity"></div>
+                    <div class="absolute bottom-4 inset-x-4 flex items-center justify-between">
+                        <span data-i18n="gal_cap6" class="text-sm font-bold text-gold">حمام واسترخاء ملكي</span>
+                        <span class="w-8 h-8 rounded-full bg-gold/20 text-gold flex items-center justify-center"><i data-lucide="maximize-2" class="w-4 h-4"></i></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Direct WhatsApp Booking & Contact / Map Section -->
+    <section id="booking" class="py-20 bg-cream">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+
+                <!-- Direct WhatsApp Booking Form (6 Cols) -->
+                <div class="lg:col-span-6 bg-white rounded-3xl p-7 sm:p-10 shadow-xl border border-gold/25">
+                    <div class="flex items-center gap-3 mb-2">
+                        <span class="w-9 h-9 rounded-xl bg-emerald-600/15 text-emerald-700 flex items-center justify-center">
+                            <i data-lucide="message-circle" class="w-5 h-5"></i>
+                        </span>
+                        <span data-i18n="book_tag" class="text-xs font-bold uppercase tracking-wider text-emerald-700">حجز مباشر عبر واتساب</span>
+                    </div>
+                    <h2 data-i18n="book_title" class="text-2xl sm:text-3xl font-extrabold text-espresso mb-2 luxury-title">احجز موعدك في The Dreams Spa</h2>
+                    <p data-i18n="book_subtitle" class="text-sm text-espresso/75 mb-7">
+                        املأ بياناتك وسيفتح لك الواتساب برسالة جاهزة بكل التفاصيل لإرسالها مباشرة إلى واتساب الحجوزات (+216 24 470 903).
+                    </p>
+
+                    <form onsubmit="submitWhatsAppBooking(event)" class="space-y-4">
+                        <!-- Client Name & Phone -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label for="client-name" data-i18n="form_name_label" class="block text-sm font-bold text-espresso mb-1.5">الاسم الكريم</label>
+                                <input type="text" id="client-name" required data-i18n-placeholder="form_name_ph" placeholder="أدخل اسمك هنا..."
+                                       class="w-full px-4 py-3.5 rounded-2xl bg-sand border border-gold/30 focus:border-gold focus:outline-none text-espresso text-sm">
+                            </div>
+                            <div>
+                                <label for="client-phone" data-i18n="form_phone_label" class="block text-sm font-bold text-espresso mb-1.5">رقم هاتفك</label>
+                                <input type="tel" id="client-phone" required dir="ltr" data-i18n-placeholder="form_phone_ph" placeholder="+216 XX XXX XXX"
+                                       class="w-full px-4 py-3.5 rounded-2xl bg-sand border border-gold/30 focus:border-gold focus:outline-none text-espresso text-sm text-start">
+                            </div>
+                        </div>
+
+                        <!-- Service / Offer Selector -->
+                        <div>
+                            <label for="service-select" data-i18n="form_srv_label" class="block text-sm font-bold text-espresso mb-1.5">اختر الخدمة أو العرض</label>
+                            <select id="service-select" class="w-full px-4 py-3.5 rounded-2xl bg-sand border border-gold/30 focus:border-gold focus:outline-none text-espresso text-sm font-semibold">
+                                <!-- Populated dynamically with all 9 services + 3 special offers -->
+                            </select>
+                        </div>
+
+                        <!-- Date & Time -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label for="book-date" data-i18n="form_date_label" class="block text-sm font-bold text-espresso mb-1.5">اليوم المفضل</label>
+                                <input type="date" id="book-date" required
+                                       class="w-full px-4 py-3.5 rounded-2xl bg-sand border border-gold/30 focus:border-gold focus:outline-none text-espresso text-sm">
+                            </div>
+                            <div>
+                                <label for="book-time" data-i18n="form_time_label" class="block text-sm font-bold text-espresso mb-1.5">الوقت التقريبي</label>
+                                <input type="time" id="book-time" value="15:00" required
+                                       class="w-full px-4 py-3.5 rounded-2xl bg-sand border border-gold/30 focus:border-gold focus:outline-none text-espresso text-sm">
+                            </div>
+                        </div>
+
+                        <!-- Notes -->
+                        <div>
+                            <label for="book-notes" data-i18n="form_notes_label" class="block text-sm font-bold text-espresso mb-1.5">ملاحظات إضافية (اختياري)</label>
+                            <textarea id="book-notes" rows="2" data-i18n-placeholder="form_notes_ph" placeholder="مثال: شخصين، أو استفسار معيّن..."
+                                      class="w-full px-4 py-3 rounded-2xl bg-sand border border-gold/30 focus:border-gold focus:outline-none text-espresso text-sm"></textarea>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button type="submit" class="w-full py-4 px-6 rounded-2xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-base transition-all shadow-lg flex items-center justify-center gap-3 cursor-pointer">
+                            <i data-lucide="send" class="w-5 h-5"></i>
+                            <span data-i18n="form_submit">إرسال الحجز عبر واتساب (+216 24 470 903)</span>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Location, Contact Details & Google Map (6 Cols) -->
+                <div id="contact" class="lg:col-span-6 space-y-6">
+                    <div class="bg-espresso text-sand rounded-3xl p-7 sm:p-8 shadow-xl border border-gold/30">
+                        <h3 data-i18n="contact_title" class="text-2xl font-extrabold text-gold mb-6 luxury-title">موقعنا وأرقام التواصل</h3>
+
+                        <div class="space-y-5">
+                            <!-- Phone & WhatsApp -->
+                            <div class="flex items-start gap-4 p-4 rounded-2xl bg-charcoal border border-gold/20">
+                                <div class="w-11 h-11 rounded-xl bg-gold text-espresso flex items-center justify-center shrink-0">
+                                    <i data-lucide="phone-call" class="w-5 h-5"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <p data-i18n="contact_phone_label" class="text-xs text-sand/70 mb-1">الهاتف المباشر للمكالمات وواتساب الحجوزات</p>
+                                    <p dir="ltr" class="text-lg sm:text-xl font-extrabold text-gold tracking-wide">📞 +216 20 173 589</p>
+                                    <p dir="ltr" class="text-base sm:text-lg font-extrabold text-emerald-400 tracking-wide mt-0.5">💬 WhatsApp: +216 24 470 903</p>
+                                    <div class="flex flex-wrap gap-2 mt-3">
+                                        <a href="tel:+21620173589" class="inline-flex items-center gap-1.5 text-xs font-bold bg-gold text-espresso px-3.5 py-2 rounded-xl hover:bg-gold-light transition-colors">
+                                            <i data-lucide="phone" class="w-3.5 h-3.5"></i>
+                                            <span data-i18n="btn_call_now">اتصال هاتفي (20 173 589)</span>
+                                        </a>
+                                        <button onclick="openWhatsAppGeneral()" class="inline-flex items-center gap-1.5 text-xs font-bold bg-emerald-600 text-white px-3.5 py-2 rounded-xl hover:bg-emerald-500 transition-colors cursor-pointer">
+                                            <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
+                                            <span>WhatsApp (24 470 903)</span>
+                                        </button>
+                                        <button onclick="copyText('+21620173589', 'toast_phone_copied')" class="inline-flex items-center gap-1.5 text-xs font-semibold bg-espresso border border-gold/30 text-sand px-3 py-2 rounded-xl hover:border-gold transition-colors cursor-pointer">
+                                            <i data-lucide="copy" class="w-3.5 h-3.5 text-gold"></i>
+                                            <span data-i18n="btn_copy">نسخ رقم المكالمات</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Address & Hours -->
+                            <div class="flex items-start gap-4 p-4 rounded-2xl bg-charcoal border border-gold/20">
+                                <div class="w-11 h-11 rounded-xl bg-gold/20 text-gold flex items-center justify-center shrink-0">
+                                    <i data-lucide="map-pin" class="w-5 h-5"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <p data-i18n="contact_addr_label" class="text-xs text-sand/70 mb-1">العنوان وساعات العمل — حمام سوسة</p>
+                                    <p class="text-sm sm:text-base font-bold text-sand leading-snug">
+                                        Route Touristique Kantaoui, Hammam-Sousse, Tunisia 4011
+                                    </p>
+                                    <p class="text-xs sm:text-sm text-gold/90 mt-1">
+                                        Rue Bd d'Alexandrie, Hammam Sousse
+                                    </p>
+                                    <p data-i18n="contact_hours_text" class="text-xs text-emerald-400 font-semibold mt-1.5">
+                                        يومياً من 09:00 صباحاً إلى 21:00 مساءً • مرحبا بالنساء والرجال
+                                    </p>
+                                    <div class="flex flex-wrap gap-2 mt-3">
+                                        <a href="https://www.google.com/maps/search/?api=1&query=Route+Touristique+Kantaoui+Hammam+Sousse+4011" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-bold bg-gold/20 text-gold border border-gold/40 px-3.5 py-2 rounded-xl hover:bg-gold hover:text-espresso transition-colors">
+                                            <i data-lucide="navigation" class="w-3.5 h-3.5"></i>
+                                            <span data-i18n="btn_open_maps">فتح في خرائط جوجل</span>
+                                        </a>
+                                        <button onclick="copyText('Route Touristique Kantaoui, Hammam-Sousse, Tunisia 4011 - Rue Bd d\'Alexandrie', 'toast_addr_copied')" class="inline-flex items-center gap-1.5 text-xs font-semibold bg-espresso border border-gold/30 text-sand px-3 py-2 rounded-xl hover:border-gold transition-colors cursor-pointer">
+                                            <i data-lucide="copy" class="w-3.5 h-3.5 text-gold"></i>
+                                            <span data-i18n="btn_copy_addr">نسخ العنوان</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Facebook Page -->
+                            <div class="flex items-center justify-between gap-4 p-4 rounded-2xl bg-charcoal border border-gold/20">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-xl bg-blue-600/20 text-blue-400 flex items-center justify-center shrink-0">
+                                        <i data-lucide="facebook" class="w-5 h-5"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm font-bold text-sand">The Dreams Spa (Facebook)</p>
+                                        <p data-i18n="fb_followers_sub" class="text-xs text-sand/70">6.4K متابع • عروض وتحديثات يومية</p>
+                                    </div>
+                                </div>
+                                <a href="https://www.facebook.com/profile.php?id=100091894653210" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold transition-colors shrink-0">
+                                    <span data-i18n="btn_visit_fb">زيارة الصفحة</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Embedded Google Map -->
+                    <div class="rounded-3xl overflow-hidden shadow-xl border-2 border-gold/30 h-64 sm:h-72 bg-charcoal relative">
+                        <iframe
+                            title="The Dreams Spa Hammam Sousse Map"
+                            src="https://www.google.com/maps?q=Route+Touristique+Kantaoui,+Hammam+Sousse,+Tunisia&output=embed"
+                            class="w-full h-full border-0"
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-espresso text-sand/80 border-t border-gold/20 py-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-start">
+            <div>
+                <p class="text-lg font-bold text-gold luxury-title">The Dreams Spa</p>
+                <p data-i18n="footer_sub" class="text-xs text-sand/65 mt-1">حمام سوسة • طريق القنطاوي / شارع الإسكندرية — تونس</p>
+            </div>
+            <div class="flex flex-wrap items-center justify-center gap-4 text-xs">
+                <a href="tel:+21620173589" dir="ltr" class="text-gold font-bold hover:underline">📞 +216 20 173 589</a>
+                <span>•</span>
+                <a href="https://wa.me/21624470903" target="_blank" rel="noopener noreferrer" dir="ltr" class="text-emerald-400 font-bold hover:underline">💬 +216 24 470 903</a>
+                <span>•</span>
+                <a href="https://www.facebook.com/profile.php?id=100091894653210" target="_blank" rel="noopener noreferrer" class="hover:text-gold transition-colors">Facebook</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Quick Button -->
+    <button onclick="openWhatsAppGeneral()" aria-label="WhatsApp" class="fixed bottom-5 right-5 z-40 w-14 h-14 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white shadow-2xl flex items-center justify-center transition-transform hover:scale-110 cursor-pointer">
+        <i data-lucide="message-circle" class="w-7 h-7"></i>
+    </button>
+
+    <!-- Lightbox Modal for Gallery -->
+    <div id="lightbox" onclick="closeLightbox()" class="fixed inset-0 z-50 hidden bg-black/90 backdrop-blur-sm items-center justify-center p-4">
+        <div class="relative max-w-4xl w-full" onclick="event.stopPropagation()">
+            <button onclick="closeLightbox()" class="absolute -top-12 right-0 text-sand hover:text-gold p-2 rounded-xl bg-charcoal/80">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+            <img id="lightbox-img" src="" alt="Spa Preview" class="w-full max-h-[80vh] object-contain rounded-2xl border border-gold/30 shadow-2xl">
+            <p id="lightbox-caption" class="text-center text-gold font-bold text-sm sm:text-base mt-3"></p>
+        </div>
+    </div>
+
+    <script>
+        const CALL_PHONE = '21620173589';
+        const WHATSAPP_PHONE = '21624470903';
+        const GALLERY_STORAGE_KEY = 'dreams_spa_persistent_gallery_v1';
+        let currentLang = 'tn';
+
+        // Official 9 Services & Exact Prices from Spa Menu
+        const officialServices = [
+            {
+                id: 'srv_relaxant',
+                name: 'Massage Relaxant',
+                price: '60 - 80 DT',
+                icon: 'heart-handshake',
+                desc: {
+                    tn: 'مساج استرخائي كامل بالزيوت الدافئة ينحّي السترس وتعب النهار ويرجّعلك الراحة النفسية.',
+                    ly: 'مساج استرخائي كامل بالزيوت الدافية ينحّي التوتر وتعب اليوم ويردّلك الراحة.',
+                    dz: 'ماساج استرخائي كامل بالزيوت الدافئة ينحّي السترس والتعب ويرجّعلك الراحة.',
+                    ma: 'ماساج استرخائي كامل بالزيوت الدافية كيحيد الستريس وتعب النهار وكيرجع ليك الراحة.',
+                    en: 'Full-body soothing warm oil massage designed to melt away stress and restore deep mental calm.'
+                }
+            },
+            {
+                id: 'srv_californien',
+                name: 'Massage Californien',
+                price: '70 - 90 DT',
+                icon: 'waves',
+                desc: {
+                    tn: 'حركات انسيابية ناعمة وطويلة على كامل البدن تخفف التوتر العضلي وتعطيك إحساس عميق بالهدوء.',
+                    ly: 'حركات ناعمة وطويلة على كامل الجسم تخفف الشد العضلي وتعطيك هدوء عميق.',
+                    dz: 'حركات ناعمة وطويلة على كامل الجسم تخفف التوتر العضلي وتعطيك هدوء كبير.',
+                    ma: 'حركات ناعمة وطويلة على الذات كاملة كتخفف التوتر العضلي وكتعطيك هدوء عميق.',
+                    en: 'Long, flowing, gentle strokes across the entire body to release emotional and muscular tension.'
+                }
+            },
+            {
+                id: 'srv_sportif',
+                name: 'Massage Sportif',
+                price: '70 - 90 DT',
+                icon: 'zap',
+                desc: {
+                    tn: 'مساج عميق للعضلات والمفاصل، مثالي بعد الرياضة أو المجهود البدني لتنحية التشنجات.',
+                    ly: 'مساج عميق للعضلات والمفاصل، ممتاز بعد الرياضة أو المجهود لإزالة التشنجات.',
+                    dz: 'ماساج عميق للعضلات والمفاصل، هايل بعد الرياضة أو التعب باش ينحّي التشنجات.',
+                    ma: 'ماساج عميق للعضلات والمفاصل، مثالي من بعد الرياضة أو المجهود باش يحيد التشنجات.',
+                    en: 'Deep tissue recovery massage targeting muscle knots and fatigue after workouts or physical strain.'
+                }
+            },
+            {
+                id: 'srv_thailandais',
+                name: 'Massage Thaïlandais',
+                price: '80 - 100 DT',
+                icon: 'sparkles',
+                desc: {
+                    tn: 'تقنية آسيوية تجمع بين الضغط وتمديد العضلات لتنشيط الدورة الدموية ومرونة الجسم.',
+                    ly: 'تقنية آسيوية تجمع بين الضغط وتمديد العضلات لتنشيط الدورة الدموية ومرونة الجسم.',
+                    dz: 'تقنية آسيوية تجمع بين الضغط وتمديد العضلات لتنشيط الدورة الدموية ومرونة الجسم.',
+                    ma: 'تقنية آسيوية كتجمع بين الضغط وتمديد العضلات لتنشيط الدورة الدموية ومرونة الذات.',
+                    en: 'Traditional Asian acupressure and assisted stretching to boost circulation, flexibility, and energy.'
+                }
+            },
+            {
+                id: 'srv_lomilomi',
+                name: 'Massage Lomi Lomi',
+                price: '90 - 120 DT',
+                icon: 'sun',
+                desc: {
+                    tn: 'مساج هاواي الفاخر بحركات إيقاعية متناغمة تبعث طاقة إيجابية واسترخاء لا مثيل له.',
+                    ly: 'مساج هاواي الفاخر بحركات إيقاعية متناغمة تمنحك طاقة إيجابية واسترخاء فائق.',
+                    dz: 'ماساج هاواي الفاخر بحركات إيقاعية متناغمة يعطيك طاقة إيجابية واسترخاء هايل.',
+                    ma: 'ماساج هاواي الفاخر بحركات إيقاعية متناغمة كيعطيك طاقة إيجابية واسترخاء رائع.',
+                    en: 'Luxurious Hawaiian rhythmic forearm massage delivering wave-like relaxation and total harmony.'
+                }
+            },
+            {
+                id: 'srv_minceur',
+                name: 'Massage Minceur (Mansare)',
+                price: '90 - 120 DT',
+                icon: 'flame',
+                desc: {
+                    tn: 'مساج خاص لنحت القوام، شدّ البشرة، وتنشيط تصريف السوائل والدهون بفعالية.',
+                    ly: 'مساج خاص لنحت القوام، شدّ البشرة، وتنشيط تصريف السوائل بفعالية عالية.',
+                    dz: 'ماساج خاص لنحت الجسم، شدّ البشرة، وتنشيط الدورة الدموية بفعالية.',
+                    ma: 'ماساج خاص لنحت القوام، شدّ البشرة، وتنشيط تصريف السوائل بفعالية.',
+                    en: 'Targeted sculpting and firming massage designed to tone skin, boost drainage, and refine contours.'
+                }
+            },
+            {
+                id: 'srv_vip',
+                name: 'Massage VIP',
+                price: '80 - 100 DT',
+                icon: 'crown',
+                desc: {
+                    tn: 'جلسة مساج خاصة ومميزة بزيوت عطرية فاخرة وعناية إضافية في أجواء هادئة ومريحة.',
+                    ly: 'جلسة مساج خاصة ومميزة بزيوت عطرية فاخرة وعناية إضافية في أجواء هادية.',
+                    dz: 'حصة ماساج خاصة ومميزة بزيوت عطرية فاخرة وتهلاية زايدة في جو هادئ.',
+                    ma: 'جلسة ماساج خاصة ومميزة بزيوت عطرية فاخرة وتهلا زايد فأجواء هادئة.',
+                    en: 'Exclusive personalized massage ritual with premium aromatherapy oils in a serene private suite.'
+                }
+            },
+            {
+                id: 'srv_cocktail',
+                name: 'Massage Cocktail',
+                price: '150 DT',
+                icon: 'gem',
+                badge: 'BEST SELLER',
+                desc: {
+                    tn: 'أقوى تجربة دلال! مزيج يجمع بين عدة تقنيات مساج عالمية في جلسة واحدة لتجديد كامل للجسم.',
+                    ly: 'أقوى تجربة دلال! مزيج يجمع بين عدة تقنيات مساج عالمية في جلسة وحدة لتجديد كامل.',
+                    dz: 'أقوى تجربة دلال! خليط يجمع بين عدة تقنيات ماساج عالمية في حصة وحدة.',
+                    ma: 'أقوى تجربة دلال! مزيج كيجمع بين عدة تقنيات ماساج عالمية فجلسة وحدة.',
+                    en: 'Our signature fusion ritual combining multiple world massage techniques in one unforgettable session.'
+                }
+            },
+            {
+                id: 'srv_hammam',
+                name: 'Hammam (حمام وعناية)',
+                price: '40 DT',
+                icon: 'droplets',
+                desc: {
+                    tn: 'حمام تقليدي دافئ وتقشير طبيعي ينظّف المسام بعمق ويعطي البشرة نعومة وانتعاش كبير.',
+                    ly: 'حمام تقليدي دافي وتقشير طبيعي ينظّف البشرة بعمق ويعطيها نعومة وانتعاش.',
+                    dz: 'حمام تقليدي سخون وتقشير طبيعي ينقّي البشرة بعمق ويعطيها نعومة وانتعاش.',
+                    ma: 'حمام تقليدي سخون وتقشير طبيعي كينقي البشرة بعمق وكيعطيها نعومة وانتعاش.',
+                    en: 'Soothing traditional steam bath and natural exfoliation to purify, soften, and refresh your skin.'
+                }
+            }
+        ];
+
+        // Special Combo Offers (عروض وباقات الدلال)
+        const specialOffers = [
+            {
+                id: 'off_relax_hammam',
+                price: '95 DT',
+                oldPrice: '110 DT',
+                tag: {
+                    tn: 'عرض التوفير',
+                    ly: 'عرض التوفير',
+                    dz: 'عرض هايل',
+                    ma: 'عرض التوفير',
+                    en: 'VALUE COMBO'
+                },
+                title: {
+                    tn: 'باقة الحمام + Massage Relaxant',
+                    ly: 'باقة الحمام + Massage Relaxant',
+                    dz: 'باقة الحمام + Massage Relaxant',
+                    ma: 'باقة الحمام + Massage Relaxant',
+                    en: 'Hammam + Massage Relaxant Combo'
+                },
+                desc: {
+                    tn: 'حمام تقليدي دافئ لتنظيف البشرة + جلسة مساج استرخائي كاملة تنسّيك تعب الأسبوع.',
+                    ly: 'حمام تقليدي دافي لتنظيف البشرة + جلسة مساج استرخائي كاملة تنسّيك تعب الأسبوع.',
+                    dz: 'حمام تقليدي سخون لتنقية البشرة + حصة ماساج استرخائي كاملة تنسّيك تعب الأسبوع.',
+                    ma: 'حمام تقليدي سخون لتنقية البشرة + جلسة ماساج استرخائي كاملة تنسيك تعب السيمانة.',
+                    en: 'Purifying traditional Hammam followed by a full-body Massage Relaxant to erase weekly fatigue.'
+                }
+            },
+            {
+                id: 'off_vip_royal',
+                price: '130 DT',
+                oldPrice: '160 DT',
+                featured: true,
+                tag: {
+                    tn: 'الأكثر طلباً 🔥',
+                    ly: 'الأكثر طلباً 🔥',
+                    dz: 'الأكثر طلباً 🔥',
+                    ma: 'الأكثر طلباً 🔥',
+                    en: 'MOST POPULAR 🔥'
+                },
+                title: {
+                    tn: 'باقة الدّلال الملكية VIP',
+                    ly: 'باقة الدلال الملكية VIP',
+                    dz: 'باقة الدلال الملكية VIP',
+                    ma: 'باقة الدلال الملكية VIP',
+                    en: 'Royal VIP Pampering Ritual'
+                },
+                desc: {
+                    tn: 'حمام + Massage VIP + تنظيف وترطيب للبشرة في أجواء الشموع والهدوء. الدّلال ما يوفاش!',
+                    ly: 'حمام + Massage VIP + تنظيف وترطيب للبشرة في أجواء الشموع والهدوء.',
+                    dz: 'حمام + Massage VIP + تنظيف وترطيب البشرة في جو الشموع والهدوء.',
+                    ma: 'حمام + Massage VIP + تنظيف وترطيب البشرة فأجواء الشموع والهدوء.',
+                    en: 'Hammam + Massage VIP + Deep Facial Care in our candlelit suite for complete head-to-toe renewal.'
+                }
+            },
+            {
+                id: 'off_duo',
+                price: '120 DT',
+                oldPrice: '150 DT',
+                tag: {
+                    tn: 'عرض لشخصين',
+                    ly: 'عرض لشخصين',
+                    dz: 'عرض لزوج عباد',
+                    ma: 'عرض لجوج دالناس',
+                    en: 'DUO / FRIENDS OFFER'
+                },
+                title: {
+                    tn: 'عرض الثنائي / الأصدقاء (2 أشخاص)',
+                    ly: 'عرض الثنائي / الأصدقاء (شخصين)',
+                    dz: 'عرض الثنائي / الأصدقاء (زوج عباد)',
+                    ma: 'عرض الثنائي / الأصدقاء (جوج دالناس)',
+                    en: 'Duo Relaxation (2 Relaxing Massages)'
+                },
+                desc: {
+                    tn: 'جلستين Massage Relaxant لك ولشريكك أو صديقك في نفس الوقت بسعر خاص ومميز.',
+                    ly: 'جلستين Massage Relaxant ليك ولشريكك أو صاحبك في نفس الوقت بسعر خاص.',
+                    dz: 'حصتين Massage Relaxant ليك ولصاحبك ولا شريكك في نفس الوقت بسعر خاص.',
+                    ma: 'جوج جلسات Massage Relaxant ليك ولشريكك أو صاحبك فنفس الوقت بثمن خاص.',
+                    en: 'Two simultaneous Massage Relaxant sessions for you and your partner or friend at a special rate.'
+                }
+            }
+        ];
+
+        // Multi-Dialect UI Dictionary
+        const translations = {
+            tn: {
+                dir: 'rtl',
+                nav_home: 'الرئيسية',
+                nav_services: 'الخدمات والأسعار',
+                nav_offers: 'عروض الدلال',
+                nav_gallery: 'المعرض والصور',
+                nav_booking: 'احجز موعدك',
+                nav_contact: 'الموقع والاتصال',
+                hero_badge: 'حمام سوسة • القنطاوي — مرحبا بالناس الكل نساء ورجال',
+                hero_title: 'تحب ترتاح وتنحّي السترس؟ <span class="text-gold">The Dreams Spa</span> ينسّيك في التعب الكل',
+                hero_subtitle: 'صباح الراحة النفسية والدّلال في حمام سوسة! مساج احترافي بأنواعه، حمام دافئ، وتنظيف عميق للبشرة في أجواء هادئة ومريحة.',
+                cta_book_now: 'احجز موعدك توّا',
+                cta_whatsapp: 'تواصل مباشرة على الواتساب',
+                stat_hours: 'مفتوح يومياً',
+                stat_welcome_title: 'نساء ورجال',
+                stat_welcome_sub: 'مرحبا بيكم الناس الكل',
+                stat_loc_title: 'حمام سوسة',
+                stat_loc_sub: 'طريق القنطاوي / شارع الإسكندرية',
+                services_tag: 'قائمة الخدمات والأسعار الرسمية',
+                services_title: 'خدمات المساج والحمام في The Dreams Spa',
+                services_desc: 'اختار نوع المساج أو الحمام اللي يناسبك بأفضل الأسعار في حمام سوسة.',
+                book_this: 'احجز الخدمة هاذي',
+                offers_tag: 'الدّلال ما يوفاش!',
+                offers_title: 'عروض وباقات الدلال في The Dreams Spa',
+                offers_desc: 'استفد من باقاتنا المتكاملة لتجربة استرخاء كاملة بأفضل سعر.',
+                book_offer: 'احجز العرض توّا',
+                gal_tag: 'أجواء المركز',
+                gal_title: 'معرض صور The Dreams Spa',
+                gal_desc: 'لقطات من غرف المساج، الشموع، وأجواء الراحة. الصور اللي تزيدها من تليفونك تبقى محفوظة في متصفحك وما تختفيش عند إعادة التحميل.',
+                gal_upload_btn: '+ زيد صور من تليفونك',
+                gal_fb_btn: 'صور صفحة فيسبوك',
+                gal_cap1: 'أجواء الشموع والاسترخاء (RELAX)',
+                gal_cap2: 'جلسات مساج الظهر والكتفين',
+                gal_cap3: 'غرف المساج المجهزة بإضاءة مريحة',
+                gal_cap4: 'زيوت عطرية طبيعية دافئة',
+                gal_cap5: 'تنظيف وعناية عميقة بالبشرة',
+                gal_cap6: 'حمام واسترخاء ملكي',
+                book_tag: 'حجز مباشر عبر واتساب',
+                book_title: 'احجز موعدك في The Dreams Spa',
+                book_subtitle: 'عمّر بياناتك وسيفتحلك الواتساب برسالة جاهزة بكل التفاصيل باش تبعثها مباشرة لواتساب الحجوزات (+216 24 470 903).',
+                form_name_label: 'الاسم واللقب',
+                form_name_ph: 'اكتب اسمك لهنا...',
+                form_phone_label: 'رقم تليفونك',
+                form_phone_ph: '+216 XX XXX XXX',
+                form_srv_label: 'اختار الخدمة أو العرض',
+                form_date_label: 'النهار',
+                form_time_label: 'الوقت',
+                form_notes_label: 'ملاحظات إضافية (اختياري)',
+                form_notes_ph: 'مثلاً: شخصين، أو أي استفسار...',
+                form_submit: 'ابعث الحجز على الواتساب (+216 24 470 903)',
+                contact_title: 'وين نكونو وكيفاش تتصل بينا',
+                contact_phone_label: 'تليفون المكالمات وواتساب الحجوزات',
+                btn_call_now: 'اطلبنا توّا (20 173 589)',
+                btn_copy: 'انسخ رقم المكالمات',
+                contact_addr_label: 'العنوان وساعات العمل — حمام سوسة',
+                contact_hours_text: 'يومياً من 09:00 صباحاً إلى 21:00 مساءً • مرحبا بالنساء والرجال',
+                btn_open_maps: 'شوف في الخريطة',
+                btn_copy_addr: 'انسخ العنوان',
+                fb_followers_sub: '6.4K متابع • عروض وتحديثات يومية',
+                btn_visit_fb: 'ادخل للصفحة',
+                footer_sub: 'حمام سوسة • طريق القنطاوي / شارع الإسكندرية — تونس',
+                toast_phone_copied: 'تم نسخ رقم المكالمات: +216 20 173 589',
+                toast_addr_copied: 'تم نسخ عنوان The Dreams Spa',
+                toast_photo_added: 'تمت إضافة الصور وحفظها في متصفحك!',
+                wa_general: 'عسلامة The Dreams Spa، نحب نستفسر ونحجز موعد عندكم في حمام سوسة.'
+            },
+            ly: {
+                dir: 'rtl',
+                nav_home: 'الرئيسية',
+                nav_services: 'الخدمات والأسعار',
+                nav_offers: 'عروض الدلال',
+                nav_gallery: 'المعرض والصور',
+                nav_booking: 'احجز موعدك',
+                nav_contact: 'الموقع والاتصال',
+                hero_badge: 'حمام سوسة • القنطاوي — مرحبا بالجميع نساء ورجال',
+                hero_title: 'تبي ترتاح وتنحّي التعب والضغط؟ <span class="text-gold">The Dreams Spa</span> يغيّرلك جوّك بالكامل',
+                hero_subtitle: 'أجواء راحة واستجمام في حمام سوسة: مساج احترافي بأنواعه، حمام دافي، وتنظيف بشرة بأعلى مستوى.',
+                cta_book_now: 'احجز موعدك توا',
+                cta_whatsapp: 'تواصل مباشرة على الواتساب',
+                stat_hours: 'مفتوح يومياً',
+                stat_welcome_title: 'نساء ورجال',
+                stat_welcome_sub: 'مرحبا بيكم كلكم',
+                stat_loc_title: 'حمام سوسة',
+                stat_loc_sub: 'طريق القنطاوي / شارع الإسكندرية',
+                services_tag: 'قائمة الخدمات والأسعار الرسمية',
+                services_title: 'خدمات المساج والحمام في The Dreams Spa',
+                services_desc: 'اختار نوع المساج أو الحمام اللي يناسبك بأفضل الأسعار في حمام سوسة.',
+                book_this: 'احجز الخدمة هذي',
+                offers_tag: 'راحة ودلال مالهمش حدود',
+                offers_title: 'عروض وباقات الدلال في The Dreams Spa',
+                offers_desc: 'استفيد من باقاتنا المتكاملة لتجربة استرخاء كاملة بأفضل سعر.',
+                book_offer: 'احجز العرض توا',
+                gal_tag: 'أجواء المركز',
+                gal_title: 'معرض صور The Dreams Spa',
+                gal_desc: 'لقطات من غرف المساج، الشموع، وأجواء الراحة. الصور اللي تضيفها من تليفونك تبقى محفوظة في متصفحك وما تختفيش عند التحديث.',
+                gal_upload_btn: '+ ضيف صور من تليفونك',
+                gal_fb_btn: 'صور صفحة فيسبوك',
+                gal_cap1: 'أجواء الشموع والاسترخاء (RELAX)',
+                gal_cap2: 'جلسات مساج الظهر والكتفين',
+                gal_cap3: 'غرف المساج المجهزة بإضاءة مريحة',
+                gal_cap4: 'زيوت عطرية طبيعية دافئة',
+                gal_cap5: 'تنظيف وعناية عميقة بالبشرة',
+                gal_cap6: 'حمام واسترخاء ملكي',
+                book_tag: 'حجز مباشر عبر واتساب',
+                book_title: 'احجز موعدك في The Dreams Spa',
+                book_subtitle: 'عبّي بياناتك وحيفتحلك الواتساب برسالة جاهزة بكل التفاصيل باش تبعتها مباشرة لواتساب الحجوزات (+216 24 470 903).',
+                form_name_label: 'الاسم الكريم',
+                form_name_ph: 'اكتب اسمك هنا...',
+                form_phone_label: 'رقم هاتفك',
+                form_phone_ph: '+216 XX XXX XXX',
+                form_srv_label: 'اختار الخدمة أو العرض',
+                form_date_label: 'اليوم',
+                form_time_label: 'الوقت',
+                form_notes_label: 'ملاحظات إضافية (اختياري)',
+                form_notes_ph: 'مثلاً: شخصين، أو استفسار معين...',
+                form_submit: 'ابعت الحجز على الواتساب (+216 24 470 903)',
+                contact_title: 'موقعنا وأرقام التواصل',
+                contact_phone_label: 'هاتف المكالمات وواتساب الحجوزات',
+                btn_call_now: 'اتصل توا (20 173 589)',
+                btn_copy: 'انسخ رقم المكالمات',
+                contact_addr_label: 'العنوان وساعات العمل — حمام سوسة',
+                contact_hours_text: 'يومياً من 09:00 صباحاً إلى 21:00 مساءً • مرحبا بالنساء والرجال',
+                btn_open_maps: 'افتح في الخريطة',
+                btn_copy_addr: 'انسخ العنوان',
+                fb_followers_sub: '6.4K متابع • عروض وتحديثات يومية',
+                btn_visit_fb: 'زيارة الصفحة',
+                footer_sub: 'حمام سوسة • طريق القنطاوي / شارع الإسكندرية — تونس',
+                toast_phone_copied: 'تم نسخ رقم المكالمات: +216 20 173 589',
+                toast_addr_copied: 'تم نسخ عنوان The Dreams Spa',
+                toast_photo_added: 'تمت إضافة الصور وحفظها في متصفحك!',
+                wa_general: 'السلام عليكم The Dreams Spa، نبي نستفسر ونحجز موعد عندكم في حمام سوسة.'
+            },
+            dz: {
+                dir: 'rtl',
+                nav_home: 'الرئيسية',
+                nav_services: 'الخدمات والأسعار',
+                nav_offers: 'عروض الدلال',
+                nav_gallery: 'المعرض والصور',
+                nav_booking: 'احجز موعدك',
+                nav_contact: 'الموقع والاتصال',
+                hero_badge: 'حمام سوسة • القنطاوي — مرحبا بيكم كامل نساء ورجال',
+                hero_title: 'حاب تريح وتنحّي السترس والتعب؟ <span class="text-gold">The Dreams Spa</span> ينسّيك في كلش',
+                hero_subtitle: 'أجواء هايلة تاع راحة وتهلاية في حمام سوسة: ماساج بروفيسيونال بأنواعه، حمام سخون، وتنظيف البشرة في مكان هادئ.',
+                cta_book_now: 'احجز موعدك دروك',
+                cta_whatsapp: 'تواصل مباشرة في الواتساب',
+                stat_hours: 'مفتوح كل يوم',
+                stat_welcome_title: 'نساء ورجال',
+                stat_welcome_sub: 'مرحبا بيكم كامل',
+                stat_loc_title: 'حمام سوسة',
+                stat_loc_sub: 'طريق القنطاوي / شارع الإسكندرية',
+                services_tag: 'قائمة الخدمات والأسعار الرسمية',
+                services_title: 'خدمات الماساج والحمام في The Dreams Spa',
+                services_desc: 'خيّر نوع الماساج ولا الحمام اللي يساعدك بأحسن الأسعار في حمام سوسة.',
+                book_this: 'احجز هاد الخدمة',
+                offers_tag: 'التهلاية ما تخلصش!',
+                offers_title: 'عروض وباقات الدلال في The Dreams Spa',
+                offers_desc: 'استفاد من باقاتنا المتكاملة لتجربة استرخاء كاملة بأحسن سعر.',
+                book_offer: 'احجز العرض دروك',
+                gal_tag: 'أجواء المركز',
+                gal_title: 'معرض صور The Dreams Spa',
+                gal_desc: 'تصاور من غرف الماساج، الشموع، وأجواء الراحة. التصاور اللي تزيدها من تيليفونك تبقى محفوظة في متصفحك وما تروحش عند التحديث.',
+                gal_upload_btn: '+ زيد تصاور من تيليفونك',
+                gal_fb_btn: 'تصاور صفحة فيسبوك',
+                gal_cap1: 'أجواء الشموع والاسترخاء (RELAX)',
+                gal_cap2: 'حصص ماساج الظهر والكتاف',
+                gal_cap3: 'غرف الماساج المجهزة بإضاءة مريحة',
+                gal_cap4: 'زيوت عطرية طبيعية دافئة',
+                gal_cap5: 'تنظيف وعناية عميقة بالبشرة',
+                gal_cap6: 'حمام واسترخاء ملكي',
+                book_tag: 'حجز ديريكت في الواتساب',
+                book_title: 'احجز موعدك في The Dreams Spa',
+                book_subtitle: 'عمّر معلوماتك وراح يفتحلك الواتساب برسالة واجدة بكل التفاصيل باش تبعثها ديريكت لواتساب الحجوزات (+216 24 470 903).',
+                form_name_label: 'الاسم واللقب',
+                form_name_ph: 'اكتب اسمك هنا...',
+                form_phone_label: 'رقم التيليفون',
+                form_phone_ph: '+216 XX XXX XXX',
+                form_srv_label: 'خيّر الخدمة ولا العرض',
+                form_date_label: 'النهار',
+                form_time_label: 'الوقت',
+                form_notes_label: 'ملاحظات إضافية (اختياري)',
+                form_notes_ph: 'مثلاً: زوج عباد، ولا استفسار...',
+                form_submit: 'ابعت الحجز في الواتساب (+216 24 470 903)',
+                contact_title: 'وين نكونو وكيفاش تتصل بينا',
+                contact_phone_label: 'تيليفون المكالمات وواتساب الحجوزات',
+                btn_call_now: 'عيّط دروك (20 173 589)',
+                btn_copy: 'انسخ رقم المكالمات',
+                contact_addr_label: 'العنوان وأوقات العمل — حمام سوسة',
+                contact_hours_text: 'يومياً من 09:00 صباحاً إلى 21:00 مساءً • مرحبا بالنساء والرجال',
+                btn_open_maps: 'افتح في الخريطة',
+                btn_copy_addr: 'انسخ العنوان',
+                fb_followers_sub: '6.4K متابع • عروض وتحديثات يومية',
+                btn_visit_fb: 'زور الصفحة',
+                footer_sub: 'حمام سوسة • طريق القنطاوي / شارع الإسكندرية — تونس',
+                toast_phone_copied: 'تم نسخ رقم المكالمات: +216 20 173 589',
+                toast_addr_copied: 'تم نسخ عنوان The Dreams Spa',
+                toast_photo_added: 'تمت إضافة التصاور وحفظها في متصفحك!',
+                wa_general: 'سلام عليكم The Dreams Spa، حاب نستفسر ونحجز موعد عندكم في حمام سوسة.'
+            },
+            ma: {
+                dir: 'rtl',
+                nav_home: 'الرئيسية',
+                nav_services: 'الخدمات والأثمنة',
+                nav_offers: 'عروض الدلال',
+                nav_gallery: 'المعرض والصور',
+                nav_booking: 'احجز موعدك',
+                nav_contact: 'الموقع والاتصال',
+                hero_badge: 'حمام سوسة • القنطاوي — مرحبا بالجميع عيالات ورجال',
+                hero_title: 'بغيتي ترتاح وتحيد الستريس والعياء؟ <span class="text-gold">The Dreams Spa</span> غادي ينسيك فالتعب كامل',
+                hero_subtitle: 'أجواء زوينة ديال الراحة والتهلا فحمام سوسة: ماساج احترافي بأنواعه، حمام سخون، وتنظيف البشرة فمكان هادئ.',
+                cta_book_now: 'احجز موعدك دابا',
+                cta_whatsapp: 'تواصل مباشرة فالواتساب',
+                stat_hours: 'مفتوح يومياً',
+                stat_welcome_title: 'عيالات ورجال',
+                stat_welcome_sub: 'مرحبا بيكم كاملين',
+                stat_loc_title: 'حمام سوسة',
+                stat_loc_sub: 'طريق القنطاوي / شارع الإسكندرية',
+                services_tag: 'لائحة الخدمات والأثمنة الرسمية',
+                services_title: 'خدمات الماساج والحمام فـ The Dreams Spa',
+                services_desc: 'اختار نوع الماساج أو الحمام اللي يناسبك بأحسن الأثمنة فحمام سوسة.',
+                book_this: 'احجز هاد الخدمة',
+                offers_tag: 'التهلا ما كيتسلاش!',
+                offers_title: 'عروض وباقات الدلال فـ The Dreams Spa',
+                offers_desc: 'استافد من باقاتنا المتكاملة لتجربة استرخاء كاملة بأحسن ثمن.',
+                book_offer: 'احجز العرض دابا',
+                gal_tag: 'أجواء المركز',
+                gal_title: 'معرض صور The Dreams Spa',
+                gal_desc: 'تصاور من غرف الماساج، الشموع، وأجواء الراحة. التصاور اللي كتزيدها من تيليفونك كتبقى محفوظة فالمتصفح وما كتمشيش من بعد التحديث.',
+                gal_upload_btn: '+ زيد تصاور من تيليفونك',
+                gal_fb_btn: 'تصاور صفحة فيسبوك',
+                gal_cap1: 'أجواء الشموع والاسترخاء (RELAX)',
+                gal_cap2: 'حصص ماساج الظهر والكتاف',
+                gal_cap3: 'غرف الماساج المجهزة بإضاءة مريحة',
+                gal_cap4: 'زيوت عطرية طبيعية دافئة',
+                gal_cap5: 'تنظيف وعناية عميقة بالبشرة',
+                gal_cap6: 'حمام واسترخاء ملكي',
+                book_tag: 'حجز مباشر فالواتساب',
+                book_title: 'احجز موعدك فـ The Dreams Spa',
+                book_subtitle: 'عمّر معلوماتك وغادي يفتح ليك الواتساب برسالة واجدة بكل التفاصيل باش تصيفطها مباشرة لواتساب الحجوزات (+216 24 470 903).',
+                form_name_label: 'الاسم الكامل',
+                form_name_ph: 'كتب سميتك هنا...',
+                form_phone_label: 'رقم التيليفون',
+                form_phone_ph: '+216 XX XXX XXX',
+                form_srv_label: 'اختار الخدمة أو العرض',
+                form_date_label: 'النهار',
+                form_time_label: 'الوقت',
+                form_notes_label: 'ملاحظات إضافية (اختياري)',
+                form_notes_ph: 'مثلاً: جوج دالناس، ولا شي استفسار...',
+                form_submit: 'صيفط الحجز فالواتساب (+216 24 470 903)',
+                contact_title: 'فين كنتواجدو وكيفاش تواصل معانا',
+                contact_phone_label: 'تيليفون المكالمات وواتساب الحجوزات',
+                btn_call_now: 'عيط دابا (20 173 589)',
+                btn_copy: 'نسخ رقم المكالمات',
+                contact_addr_label: 'العنوان وأوقات العمل — حمام سوسة',
+                contact_hours_text: 'يومياً من 09:00 صباحاً إلى 21:00 مساءً • مرحبا بالعيالات والرجال',
+                btn_open_maps: 'فتح فالخريطة',
+                btn_copy_addr: 'نسخ العنوان',
+                fb_followers_sub: '6.4K متابع • عروض وتحديثات يومية',
+                btn_visit_fb: 'زور الصفحة',
+                footer_sub: 'حمام سوسة • طريق القنطاوي / شارع الإسكندرية — تونس',
+                toast_phone_copied: 'تم نسخ رقم المكالمات: +216 20 173 589',
+                toast_addr_copied: 'تم نسخ عنوان The Dreams Spa',
+                toast_photo_added: 'تمت إضافة التصاور وحفظها فالمتصفح!',
+                wa_general: 'السلام عليكم The Dreams Spa، بغيت نستفسر ونحجز موعد عندكم فحمام سوسة.'
+            },
+            en: {
+                dir: 'ltr',
+                nav_home: 'Home',
+                nav_services: 'Services & Prices',
+                nav_offers: 'Special Offers',
+                nav_gallery: 'Gallery',
+                nav_booking: 'Book Now',
+                nav_contact: 'Location & Contact',
+                hero_badge: 'Hammam Sousse • Kantaoui — Welcoming Both Women & Men',
+                hero_title: 'Unwind & Melt Away Stress at <span class="text-gold">The Dreams Spa</span>',
+                hero_subtitle: 'Indulge in an unforgettable sensory escape in Hammam Sousse. Specialized massage therapy, traditional hammam, and deep skincare in a serene sanctuary.',
+                cta_book_now: 'Book Your Session',
+                cta_whatsapp: 'Chat on WhatsApp',
+                stat_hours: 'Open Daily',
+                stat_welcome_title: 'Women & Men',
+                stat_welcome_sub: 'Everyone is welcome',
+                stat_loc_title: 'Hammam Sousse',
+                stat_loc_sub: 'Route Touristique Kantaoui / Bd d\'Alexandrie',
+                services_tag: 'Official Menu & Pricing',
+                services_title: 'Massage & Hammam Menu at The Dreams Spa',
+                services_desc: 'Choose your ideal massage therapy or traditional hammam ritual at transparent local rates.',
+                book_this: 'Book This Treatment',
+                offers_tag: 'Endless Pampering',
+                offers_title: 'Signature Combos & Special Offers',
+                offers_desc: 'Enjoy our curated multi-treatment packages for total renewal at exceptional value.',
+                book_offer: 'Claim Offer Now',
+                gal_tag: 'Spa Ambiance',
+                gal_title: 'The Dreams Spa Gallery',
+                gal_desc: 'Explore our tranquil massage rooms and candlelit suites. Local photos you add stay saved in your browser across reloads.',
+                gal_upload_btn: '+ Add Local Photos',
+                gal_fb_btn: 'Facebook Page Photos',
+                gal_cap1: 'Candlelit Relaxation Ambiance (RELAX)',
+                gal_cap2: 'Back & Shoulder Massage Therapy',
+                gal_cap3: 'Ambient Modern Treatment Rooms',
+                gal_cap4: 'Warm Natural Essential Oils',
+                gal_cap5: 'Deep Facial Esthetics & Care',
+                gal_cap6: 'Traditional Hammam & Royal Care',
+                book_tag: 'Direct WhatsApp Reservation',
+                book_title: 'Reserve Your Appointment',
+                book_subtitle: 'Fill in your details and WhatsApp will open with a ready-to-send booking message addressed to +216 24 470 903.',
+                form_name_label: 'Your Full Name',
+                form_name_ph: 'Enter your name...',
+                form_phone_label: 'Your Phone Number',
+                form_phone_ph: '+216 XX XXX XXX',
+                form_srv_label: 'Select Treatment or Offer',
+                form_date_label: 'Preferred Date',
+                form_time_label: 'Preferred Time',
+                form_notes_label: 'Additional Notes (Optional)',
+                form_notes_ph: 'E.g., 2 guests, or specific requests...',
+                form_submit: 'Send Booking via WhatsApp (+216 24 470 903)',
+                contact_title: 'Location & Direct Contact',
+                contact_phone_label: 'Direct Calls & WhatsApp Bookings',
+                btn_call_now: 'Call Now (20 173 589)',
+                btn_copy: 'Copy Call Number',
+                contact_addr_label: 'Address & Hours — Hammam Sousse',
+                contact_hours_text: 'Open Daily 09:00 AM – 09:00 PM • Both Women & Men Welcome',
+                btn_open_maps: 'Open in Google Maps',
+                btn_copy_addr: 'Copy Address',
+                fb_followers_sub: '6.4K Followers • Daily Updates & Offers',
+                btn_visit_fb: 'Visit Page',
+                footer_sub: 'Hammam Sousse • Route Touristique Kantaoui / Rue Bd d\'Alexandrie — Tunisia',
+                toast_phone_copied: 'Call number copied: +216 20 173 589',
+                toast_addr_copied: 'Address copied to clipboard!',
+                toast_photo_added: 'Photos added and saved to your browser!',
+                wa_general: 'Hello The Dreams Spa, I would like to inquire and book an appointment in Hammam Sousse.'
+            }
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const dateInput = document.getElementById('book-date');
+            if (dateInput) {
+                const today = new Date().toISOString().split('T')[0];
+                dateInput.value = today;
+                dateInput.min = today;
+            }
+            restoreSavedGalleryPhotos();
+            changeLanguage('tn');
+        });
+
+        function renderServices() {
+            const grid = document.getElementById('services-grid');
+            const dict = translations[currentLang] || translations.tn;
+            grid.innerHTML = officialServices.map(srv => `
+                <div class="bg-white rounded-3xl p-6 shadow-sm border border-gold/25 hover:border-gold hover:shadow-xl transition-all flex flex-col justify-between group relative overflow-hidden">
+                    ${srv.badge ? `<div class="absolute top-0 left-0 bg-gold text-espresso text-[10px] font-extrabold px-3 py-1 rounded-br-xl tracking-wider">${srv.badge}</div>` : ''}
+                    <div>
+                        <div class="flex items-center justify-between gap-3 mb-4">
+                            <div class="w-12 h-12 rounded-2xl bg-emeraldSpa/10 text-emeraldSpa group-hover:bg-gold group-hover:text-espresso transition-colors flex items-center justify-center shrink-0">
+                                <i data-lucide="${srv.icon}" class="w-6 h-6"></i>
+                            </div>
+                            <span dir="ltr" class="inline-block bg-espresso text-gold font-extrabold text-sm px-3.5 py-1.5 rounded-xl shadow-sm">
+                                ${srv.price}
+                            </span>
+                        </div>
+                        <h3 class="text-xl font-extrabold text-espresso mb-2">${srv.name}</h3>
+                        <p class="text-sm text-espresso/75 leading-relaxed mb-6">
+                            ${srv.desc[currentLang] || srv.desc.tn}
+                        </p>
+                    </div>
+                    <button onclick="selectItemAndScroll('${srv.id}')" class="w-full py-3 px-4 rounded-xl bg-cream hover:bg-gold text-espresso font-bold text-sm transition-colors flex items-center justify-center gap-2 cursor-pointer">
+                        <span>${dict.book_this}</span>
+                        <i data-lucide="calendar-plus" class="w-4 h-4"></i>
+                    </button>
+                </div>
+            `).join('');
+        }
+
+        function renderOffers() {
+            const grid = document.getElementById('offers-grid');
+            const dict = translations[currentLang] || translations.tn;
+            grid.innerHTML = specialOffers.map(off => `
+                <div class="${off.featured ? 'bg-espresso border-2 border-gold shadow-2xl scale-[1.02]' : 'bg-charcoal/90 border border-gold/30 shadow-lg'} rounded-3xl p-7 flex flex-col justify-between transition-all hover:border-gold">
+                    <div>
+                        <div class="flex items-center justify-between gap-2 mb-4">
+                            <span class="text-xs font-extrabold px-3 py-1 rounded-full ${off.featured ? 'bg-gold text-espresso' : 'bg-gold/20 text-gold'}">
+                                ${off.tag[currentLang] || off.tag.tn}
+                            </span>
+                            <div dir="ltr" class="text-end">
+                                <span class="text-xs text-sand/50 line-through me-1.5">${off.oldPrice}</span>
+                                <span class="text-xl font-extrabold text-gold">${off.price}</span>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold text-sand mb-3">${off.title[currentLang] || off.title.tn}</h3>
+                        <p class="text-sm text-sand/80 leading-relaxed mb-6">
+                            ${off.desc[currentLang] || off.desc.tn}
+                        </p>
+                    </div>
+                    <button onclick="selectItemAndScroll('${off.id}')" class="w-full py-3.5 px-4 rounded-xl ${off.featured ? 'bg-gold hover:bg-gold-light text-espresso' : 'bg-emerald-600 hover:bg-emerald-500 text-white'} font-bold text-sm transition-colors flex items-center justify-center gap-2 cursor-pointer">
+                        <i data-lucide="message-circle" class="w-4 h-4"></i>
+                        <span>${dict.book_offer}</span>
+                    </button>
+                </div>
+            `).join('');
+        }
+
+        function populateBookingDropdown() {
+            const select = document.getElementById('service-select');
+            const previousVal = select.value;
+            const offersGroupLabel = currentLang === 'en' ? '✨ Special Offers & Combos' : '✨ عروض وباقات الدلال';
+            const servicesGroupLabel = currentLang === 'en' ? '💆‍♀️ Official Services & Pricing' : '💆‍♀️ قائمة الخدمات والأسعار';
+
+            let html = `<optgroup label="${offersGroupLabel}">`;
+            specialOffers.forEach(off => {
+                const title = off.title[currentLang] || off.title.tn;
+                html += `<option value="${off.id}">${title} (${off.price})</option>`;
+            });
+            html += `</optgroup><optgroup label="${servicesGroupLabel}">`;
+            officialServices.forEach(srv => {
+                html += `<option value="${srv.id}">${srv.name} (${srv.price})</option>`;
+            });
+            html += `</optgroup>`;
+
+            select.innerHTML = html;
+            if (previousVal) select.value = previousVal;
+        }
+
+        function changeLanguage(lang) {
+            currentLang = lang;
+            const dict = translations[lang] || translations.tn;
+
+            document.documentElement.dir = dict.dir;
+            document.documentElement.lang = lang === 'en' ? 'en' : 'ar';
+
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (dict[key]) el.innerHTML = dict[key];
+            });
+
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+                const key = el.getAttribute('data-i18n-placeholder');
+                if (dict[key]) el.placeholder = dict[key];
+            });
+
+            renderServices();
+            renderOffers();
+            populateBookingDropdown();
+            lucide.createIcons();
+        }
+
+        function toggleMobileMenu() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        }
+
+        function showToast(messageKeyOrText, isRaw = false) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toast-msg');
+            const dict = translations[currentLang] || translations.tn;
+
+            toastMsg.textContent = isRaw ? messageKeyOrText : (dict[messageKeyOrText] || messageKeyOrText);
+            toast.classList.remove('hidden');
+            toast.classList.add('flex');
+
+            clearTimeout(window.toastTimer);
+            window.toastTimer = setTimeout(() => {
+                toast.classList.add('hidden');
+                toast.classList.remove('flex');
+            }, 3200);
+        }
+
+        function copyText(text, toastKey) {
+            const tempInput = document.createElement('textarea');
+            tempInput.value = text;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            try {
+                document.execCommand('copy');
+                showToast(toastKey);
+            } catch (err) {
+                showToast(text, true);
+            }
+            document.body.removeChild(tempInput);
+        }
+
+        function openWhatsAppGeneral() {
+            const dict = translations[currentLang] || translations.tn;
+            const msg = encodeURIComponent(dict.wa_general);
+            window.open(`https://wa.me/${WHATSAPP_PHONE}?text=${msg}`, '_blank', 'noopener,noreferrer');
+        }
+
+        function selectItemAndScroll(itemId) {
+            const select = document.getElementById('service-select');
+            if (select) select.value = itemId;
+            document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function submitWhatsAppBooking(e) {
+            e.preventDefault();
+            const name = document.getElementById('client-name').value.trim();
+            const phone = document.getElementById('client-phone').value.trim();
+            const select = document.getElementById('service-select');
+            const selectedText = select.options[select.selectedIndex].text;
+            const date = document.getElementById('book-date').value;
+            const time = document.getElementById('book-time').value;
+            const notes = document.getElementById('book-notes').value.trim();
+
+            let message = '';
+            if (currentLang === 'en') {
+                message = `Hello *The Dreams Spa* ✨\nI would like to book an appointment:\n• *Name:* ${name}\n• *Phone:* ${phone}\n• *Service/Offer:* ${selectedText}\n• *Date:* ${date}\n• *Time:* ${time}`;
+                if (notes) message += `\n• *Notes:* ${notes}`;
+            } else {
+                message = `مرحبا *The Dreams Spa* ✨\nنحب نحجز موعد عندكم في حمام سوسة:\n• *الاسم:* ${name}\n• *رقم الهاتف:* ${phone}\n• *الخدمة / العرض:* ${selectedText}\n• *التاريخ:* ${date}\n• *الوقت:* ${time}`;
+                if (notes) message += `\n• *ملاحظات:* ${notes}`;
+            }
+
+            window.open(`https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(message)}`, '_blank', 'noopener,noreferrer');
+        }
+
+        function getSavedGalleryPhotos() {
+            try {
+                const raw = localStorage.getItem(GALLERY_STORAGE_KEY);
+                return raw ? JSON.parse(raw) : [];
+            } catch (e) {
+                return [];
+            }
+        }
+
+        function setSavedGalleryPhotos(list) {
+            try {
+                localStorage.setItem(GALLERY_STORAGE_KEY, JSON.stringify(list));
+                return true;
+            } catch (e) {
+                return false;
+            }
+        }
+
+        function compressUploadedImage(file) {
+            return new Promise((resolve) => {
+                const reader = new FileReader();
+                reader.onload = (ev) => {
+                    const img = new Image();
+                    img.onload = () => {
+                        const canvas = document.createElement('canvas');
+                        const maxWidth = 900;
+                        const scale = img.width > maxWidth ? maxWidth / img.width : 1;
+                        canvas.width = Math.round(img.width * scale);
+                        canvas.height = Math.round(img.height * scale);
+                        const ctx = canvas.getContext('2d');
+                        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+                        resolve(canvas.toDataURL('image/jpeg', 0.78));
+                    };
+                    img.src = ev.target.result;
+                };
+                reader.readAsDataURL(file);
+            });
+        }
+
+        function createSavedPhotoCard(dataUrl) {
+            const card = document.createElement('div');
+            card.setAttribute('data-saved-photo', 'true');
+            card.onclick = function() { openLightbox(this); };
+            card.className = 'group relative h-72 rounded-3xl overflow-hidden border-2 border-gold cursor-pointer bg-charcoal';
+            card.innerHTML = `
+                <img src="${dataUrl}" alt="The Dreams Spa Photo" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                <div class="absolute inset-0 bg-gradient-to-t from-espresso/90 via-transparent to-transparent opacity-80 group-hover:opacity-95 transition-opacity"></div>
+                <div class="absolute top-3 left-3 bg-gold text-espresso text-[10px] font-extrabold px-2.5 py-1 rounded-full">The Dreams Spa</div>
+                <div class="absolute bottom-4 inset-x-4 flex items-center justify-between">
+                    <span class="text-sm font-bold text-gold">The Dreams Spa — Hammam Sousse</span>
+                    <span class="w-8 h-8 rounded-full bg-gold/20 text-gold flex items-center justify-center"><i data-lucide="maximize-2" class="w-4 h-4"></i></span>
+                </div>
+            `;
+            return card;
+        }
+
+        function restoreSavedGalleryPhotos() {
+            const grid = document.getElementById('gallery-grid');
+            if (!grid) return;
+            grid.querySelectorAll('[data-saved-photo="true"]').forEach(el => el.remove());
+
+            const saved = getSavedGalleryPhotos();
+            saved.slice().reverse().forEach(dataUrl => {
+                grid.prepend(createSavedPhotoCard(dataUrl));
+            });
+            lucide.createIcons();
+        }
+
+        async function handlePhotoUpload(event) {
+            const files = event.target.files;
+            if (!files || files.length === 0) return;
+
+            const saved = getSavedGalleryPhotos();
+            let addedAny = false;
+
+            for (const file of Array.from(files)) {
+                if (!file.type.startsWith('image/')) continue;
+                const compressedUrl = await compressUploadedImage(file);
+                saved.push(compressedUrl);
+                addedAny = true;
+            }
+
+            if (addedAny) {
+                const ok = setSavedGalleryPhotos(saved);
+                restoreSavedGalleryPhotos();
+                if (ok) {
+                    showToast('toast_photo_added');
+                } else {
+                    showToast('مساحة التخزين في المتصفح ممتلئة، جرّب صوراً أقل.', true);
+                }
+            }
+
+            event.target.value = '';
+        }
+
+        function openLightbox(cardEl) {
+            const img = cardEl.querySelector('img');
+            const caption = cardEl.querySelector('span');
+            if (!img) return;
+
+            document.getElementById('lightbox-img').src = img.src;
+            document.getElementById('lightbox-caption').textContent = caption ? caption.textContent : 'The Dreams Spa';
+            const lb = document.getElementById('lightbox');
+            lb.classList.remove('hidden');
+            lb.classList.add('flex');
+        }
+
+        function closeLightbox() {
+            const lb = document.getElementById('lightbox');
+            lb.classList.add('hidden');
+            lb.classList.remove('flex');
+        }
+    </script>
+</body>
+</html>
